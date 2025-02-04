@@ -1,0 +1,60 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<button type="button" onclick="document.getElementById('demo').innerHTML = new Date()">CLICK TO KNOW TIME</button>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+    function sum(x, y){
+        return x + y;
+    }
+    
+    document.getElementById("demo").innerHTML = sum(5, 10);
+
+    function welMsg(name){
+        return ("Hello" + name + "Welcome to WSD");
+    }
+
+    document.getElementById("demo").innerHTML = welMsg("Anjana");
+
+    const mul = function (a, b){ return a * b; }
+    document.getElementById("demo").innerHTML = mul(5, 10);
+
+    const a = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+
+    const s2 = a.map( function(s) {
+        return s.length;
+    });
+
+    console.log("Normal way", s2);
+
+    const s3 = a.map((s) => s.length);
+
+    console.log("Arrow way", s3);
+
+
+
+</script>
+</body>
+</html>
+
