@@ -1,0 +1,17 @@
+try {
+    // 1st method of writing function
+    function hello1(){
+        return "Hello World!";
+    }
+// 2nd method of writing function
+    const hello2 = () => {
+        return "This is Arrow Function!";
+    }
+    // 3rd method of writing method
+    // only function has one statement
+    const hello3 = () => "single statement function";
+
+    console.log(hello1() + "\n" +  hello2() + "\n" + hello3());
+} catch (e) {
+    console.log(e);
+}
