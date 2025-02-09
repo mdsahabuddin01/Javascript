@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<!-- Add two buttons -->
+<button id="button1">Click the button for her</button>
+<button id="button2">Click the button for him</button>
+
+<script>
+  try {
+    class Person {
+      constructor(name, random) {
+        this.name = name;
+        this.random = random;
+      }
+      watch() {
+        return this.name + " is watching " + this.random;
+      }
+      activity() {
+        return "oh " + this.name + " is going to roll up two " + this.random;
+      }
+    }
+
+    const person1 = new Person("Anjana", "Podcast");
+    const person2 = new Person("Rhaju", "cigarettes");
+
+    // Get the paragraph element
+    const demoElement = document.getElementById("demo");
+
+    // Get the button elements
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+
+    // Add event listeners to the buttons
+    button1.addEventListener("click", function() {
+      demoElement.innerHTML = person1.watch();
+    });
+
+    button2.addEventListener("click", function() {
+      demoElement.innerHTML = person2.activity();
+    });
+
+  } catch (e) {
+    console.log(e);
+  }
+</script>
+
+</body>
+</html>
