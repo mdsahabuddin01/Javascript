@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</Object></title>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: gray;
+        }
+        #animate{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="animate"></div>
+    </div>  
+
+    <button onclick="myMove()">Click to see</button>
+    <!-- <script src="./script.js"></script>
+     -->
+    <script>
+        function myMove() {
+    let id = null;
+    const elem = document.getElementById("animate");
+    let pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+      if (pos == 400) {
+        clearInterval(id);
+      } else {
+        pos++;
+        elem.style.top = pos + 'px';
+        elem.style.left = pos + 'px';
+      }
+    }
+  }
+
+    </script>
+</body>
+</html>
