@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+<!-- </head>
+<div id = 'href'></div>
+<div id = 'hostname'></div>
+<div id = 'pathname'></div>
+<div id = 'protocol'></div>
+<div id = 'port'></div> -->
+
+<div id = 'confirm'></div>
+<div id = 'prompt'></div>
+
+<div>
+    <input type="button" value="Show Alart" onclick="showAlert()"/>
+</div>
+
+<div>
+    <input type="button" value="Show confirm" onclick="showConfirm()"/>
+</div>
+
+<div>
+    <input type="button" value="Show prompt" onclick="showPrompt()"/>
+</div>
+
+<body>
+    <!-- <script src="script.js"></script>  -->
+     <script>
+        // select dom elements
+const confirm = document.getElementById("confirm");
+const prompt = document.getElementById("prompt");
+
+
+function showAlert() {
+  alert("Hello World");
+}
+
+function showConfirm() {
+    let txt;
+    if(confirm("Are you sure you want to delete this?")) {
+        txt = "You pressed OK!";
+    }
+    else {
+        txt = "You pressed Cancel!";
+    }
+    confirm.innerHTML = txt;
+}
+
+function showPrompt() {
+    let person = window.prompt("Please enter your name", "Harry Potter");
+    if (person === null || person === "") {
+        txt = "User cancelled the prompt.";
+    }
+    else {
+        txt = "Hello " + person + "! How are you today?";
+    }
+    prompt.innerHTML = txt;
+}
+
+     </script>
+</body>
+</html>
