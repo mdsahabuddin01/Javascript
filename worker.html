@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Web API</title>
+</head>
+<body>
+
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+    <button onclick="alert('hello')">Click</button>
+    
+    <p id="demo"></p>
+
+    <script>
+    let w;
+
+    function startWorker() {
+        // Does the browser support Web Workers?
+        if (typeof(Worker) !== "undefined") {
+            // Worker is available
+
+            // If worker is already defined, terminate it
+            if (typeof(w) !== "undefined") {
+                w.terminate();
+            }
+
+            // Create a new worker using a Blob URL
+            const workerBlob = new Blob([`
+            let i = 0;
+            while (i < 1000000) {
+                i++;
+            }
+            postMessage(i); // Send the result back to the main script
+            `], { type: 'application/javascript' });
+
+            const workerUrl = URL.createObjectURL(workerBlob);
+            w = new Worker(workerUrl);
+
+            // Listening for worker events/messages
+            w.onmessage = function(event) {
+                document.getElementById("demo").innerHTML = event.data;
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Workers...");
+        }
+    }
+
+    function stopWorker() {
+        if (typeof(Worker) !== "undefined") {
+            if (typeof(w) !== "undefined") {
+                w.terminate();
+                w = undefined;
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Workers...");
+        }
+    }
+    </script>
+</body>
+</html>
