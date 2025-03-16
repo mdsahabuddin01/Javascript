@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function myDisplay(result){
+//     console.log(result);
+// }
+
+// function myAddition(num1, num2){
+//     let sum = num1 + num2;
+//     //return sum;
+//     display(sum);
+// }
+
+// //const result  = addition(2, 3); // 5
+// myAddition(5, 5);  // 10
+// //display(result); // 5
+
+// js callback function
+// purpose of callback function is to pass a function as an argument to another function
+// and then to call that function inside the other function
+
+// function Display(){
+//     console.log("Called before the addition is done");
+// }
+
+function Addition(num1, num2, callback){
+    let sum = num1 + num2;
+    if(callback) callback(sum);
+    return sum;
+}
+
+//const result_02 = Addition(9, 8, function(){
+    Addition(9, 8, function(result_02){    
+        console.log(result_02)
+        });
+//console.log(result_02);
+
+
+    </script>
+</body>
+</html>
