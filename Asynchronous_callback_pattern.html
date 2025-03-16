@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Callback Pattern</title>
+</head>
+<body>
+    <script>
+        /*console.log('Line 1 code');
+
+setTimeout(function(){
+    console.log('Line 2 code');
+}, 2000);
+
+
+setInterval(function(){
+    console.log('Line 4 code');
+}
+, 2000);
+
+console.log('Line 3 code');
+
+*/
+
+const paymentSuccess = true;
+const marks = 80;
+
+function enroll(callback){
+    console.log('Enrolling...');
+    
+    setTimeout(function(){
+        if(paymentSuccess){
+            callback('Enrolled successfully');
+        } else{
+            console.log('Payment failed');
+        }
+    }, 2000);
+}
+
+function progress(callback){
+    console.log('Progressing...');
+    setTimeout(function(){
+        if (marks >= 80){
+            callback();
+        } else{
+            console.log('try again');
+        }
+    }, 3000);
+}
+
+function finished(callback){
+    console.log('finished');
+    setTimeout(function(){
+        callback();
+    }, 1000);
+}
+
+function certificate(){
+    console.log('Certificate generated');
+
+    setTimeout(function(){
+        console.log('Certificate sent');
+    }, 1000);
+}
+
+enroll(function(){
+    progress(function(){
+        finished(certificate);
+})});
+    </script>
+</body>
+</html>
