@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Fetch Data</title>
+</head>
+
+<body>
+        <div id="demo">
+            <h1> AJAX </h1>
+            <p><button onclick="LoadData()"> Change this content</button></p>
+        </div>
+    
+        <!-- <script src="./script.js"></script> -->
+         <script>
+            function LoadData(){
+    // Creating a new request
+    const xhr = new XMLHttpRequest();
+
+    // after arriving the response
+    xhr.onload = function(){
+        const container = document.getElementById("demo");
+        demo.innerHTML = xhr.responseText;
+    };
+
+    // prepare request - methods: get, post, put, patch, delete, options
+    xhr.open("GET", "./data/data.txt");
+    // send request
+    xhr.send();
+}
+         </script>
+</body>
+</html>
