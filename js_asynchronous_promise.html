@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Promise </title>
+</head>
+<body>
+
+    <script>
+        const sttus = true;
+
+console.log("task 1")
+
+const promise = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        if (sttus) {
+            resolve("task 2");
+        } else {
+            reject("failed");
+        }
+    },2000);
+});
+
+
+promise
+    .then(function(value){
+        console.log(value);
+    })
+    .catch(function(err){
+        console.log(err);
+    })
+
+console.log("task 3")
+    </script>
+</body>
+</html>
