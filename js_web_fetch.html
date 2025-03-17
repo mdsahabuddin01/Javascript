@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Callback Pattern</title>
+</head>
+<body>
+    <script>
+        const display = document.getElementById("display");
+
+// promise
+/*
+function getData(){
+    fetch("http://127.0.0.1:5500/data.txt")
+        .then(res => res.text())
+        .then((data) => {
+            display.innerText = data;
+        });
+}
+        */
+
+async function getData(){
+    const res = await fetch("http://127.0.0.1:5500/data.txt");
+
+    const data = await res.json();
+
+    display.innerHTML = data;
+}
+    </script>
+</body>
+</html>
