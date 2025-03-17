@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object Notation display</title>
+</head>
+<body>
+    
+    <!-- <script src="./script.js"></script> -->
+    <h1>JSON Data</h1>
+    <pre id="jsonOutput"></pre>
+
+    <script>
+        // Fetch the JSON file
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Display the JSON data in a readable format
+                document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+</body>
+</html>
