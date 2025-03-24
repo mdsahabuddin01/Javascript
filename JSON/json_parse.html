@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1> Learning JSON!</h1>
+
+    <script>
+        const jsonString = '{"name":"Md", "Age":30, "City":"London", "birth": "03-01-1997"}';
+
+console.log("Converting JSON to js Object");
+
+const myObj = JSON.parse(jsonString, function(key, value){
+    if (key === "birth"){
+        return new Date(value);
+    }
+    return value;
+});
+
+console.log(myObj);
+
+    </script>
+</body>
+</html>
