@@ -4,6 +4,7 @@ function findMaxNumber(arr){
   if (arr.length === 0){
     console.log("Array is empty");
   }
+
   
   let max = arr[0];
   
