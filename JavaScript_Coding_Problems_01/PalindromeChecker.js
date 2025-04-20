@@ -1,7 +1,6 @@
 function isPalindrome(text){
   
   const cleanTxt = text.toLowerCase().replace(/[^a-z0-9]/g, '');
-  
   return cleanTxt === cleanTxt.split().reverse().join("");
 }
 
